@@ -24,12 +24,27 @@ router.get("/api/:id", function(req, res) {
 router.get("/data_store/:id", function(req, res) {
   MyRetail.find({ id: req.params.id }, function(databaseQueryError, data) {
     if (databaseQueryError) {
-      console.log("databaseQueryError:id", databaseQueryError);
+      console.log("database query error", databaseQueryError);
       res.sendStatus(500);
     } else {
       res.send(data);
     }
   });
 }); // End data route to dB with :id
+
+//TODO: add additional params suck as $set to complete this .put
+router.put("/movies/:id", function(req, res) {
+  MyRetail.findByIdAndUpdate({ id: req.params.id }, function(
+    databaseQueryError,
+    data
+  ) {
+    if (databaseQueryError) {
+      console.log("database query error", databaseQueryError);
+      res.sendStatus(500);
+    } else {
+      res.send(data);
+    }
+  });
+});
 
 module.exports = router;
