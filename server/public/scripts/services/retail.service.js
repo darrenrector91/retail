@@ -65,7 +65,7 @@ myApp.service("RetailService", [
       console.log(id);
       console.log(code);
 
-      let x = (current_price = {
+      let priceChange = (current_price = {
         value: price,
         currency_code: code
       });
@@ -73,7 +73,7 @@ myApp.service("RetailService", [
       $http({
         method: "PUT",
         url: "/movies/update/" + id,
-        x
+        priceChange
       }).then(function(response) {
         console.log(response);
       });

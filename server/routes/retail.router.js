@@ -5,20 +5,7 @@ var request = require("request");
 
 console.log("in router");
 
-// Data route to dB
-router.get("/", function(req, res) {
-  MyRetail.find({}, function(databaseQueryError, data) {
-    if (databaseQueryError) {
-      console.log("databaseQueryError", databaseQueryError);
-      res.sendStatus(500);
-    } else {
-      res.send(data);
-      console.log(data);
-    }
-  });
-}); // End data route to dB
-
-// Data route to APi
+// Data route to API
 router.get("/api/:id", function(req, res) {
   var apiURL =
     "http://redsky.target.com/v2/pdp/tcin/13860428?excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics";
