@@ -1,0 +1,12 @@
+.listTitle {
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(153, 153, 153);
+    text-decoration: underline;
+}
+
+.dataDisplay {
+    color: #A6D539;
+    font-style: underline;
+    font-size: 15px;
+}
