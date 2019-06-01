@@ -20,32 +20,29 @@ myApp.service("RetailService", [
       currencyCode: []
     };
 
-    self.cost = {
-      list: []
+    self.updatedPrice = {
+      currency_code: "",
+      value: ""
     };
 
-    // Reads pricing information from a NoSQL data store and combines it with the product id and name from the HTTP request into a single response
-
     // Get data from MongoDB Movies Table
-    self.getDatabaseMovies = function(movieId) {
+    self.getDetails = function(movieId) {
       $http({
         method: "GET",
         url: "/movies/data_store/" + movieId
       }).then(function(response) {
-        console.log(response.data);
-        let data = response.data;
-        self.cost.list = data;
-        // if (response.data[0].id == movieId) {
-        //   self.productId.list = response.data[0].id;
-        //   self.productTitle.list = response.data[0].title;
-        //   self.productPrice.value = response.data[0].current_price.value.toFixed(
-        //     2
-        //   );
-        //   self.productCode.currencyCode =
-        //     response.data[0].current_price.currency_code;
-        // } else {
-        //   console.log("error in getDatabaseMovies by id");
-        // }
+        //console.log(response.data);
+        if (response.data[0].id == movieId) {
+          self.productId.list = response.data[0].id;
+          self.productTitle.list = response.data[0].title;
+          self.productPrice.value = response.data[0].current_price.value.toFixed(
+            2
+          );
+          self.productCode.currencyCode =
+            response.data[0].current_price.currency_code;
+        } else {
+          console.log("error in getDetails by id");
+        }
       });
     };
 
@@ -64,13 +61,19 @@ myApp.service("RetailService", [
     };
 
     self.updateMoviePrice = function(price, code, id) {
-      // console.log(price);
-      // console.log(id);
-      // console.log(code);
+      console.log(price);
+      console.log(id);
+      console.log(code);
+
+      let x = (current_price = {
+        value: price,
+        currency_code: code
+      });
 
       $http({
-        method: "GET",
-        url: "/movies/update/" + id
+        method: "PUT",
+        url: "/movies/update/" + id,
+        x
       }).then(function(response) {
         console.log(response);
       });

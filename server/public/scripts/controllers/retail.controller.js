@@ -12,13 +12,12 @@ myApp.controller("RetailController", [
     self.productTitle = RetailService.productTitle;
     self.productPrice = RetailService.productPrice;
     self.productCode = RetailService.productCode;
-    self.cost = RetailService.cost;
 
     self.getMovies = function(productId) {
       if (self.productID.length == 8) {
         self.isBusy = false;
         self.productID = "";
-        RetailService.getDatabaseMovies(productId);
+        RetailService.getDetails(productId);
         RetailService.getApiMovies(productId);
       } else {
         toastr.options = {
@@ -38,7 +37,6 @@ myApp.controller("RetailController", [
       // console.log(productCode);
       // console.log(productId);
       // console.log(productPrice);
-
       RetailService.updateMoviePrice(productPrice, productCode, productId);
     };
   }
