@@ -47,3 +47,7 @@ A RESTful service that can retrieve product and price details by ID
 
 ## Stretch Goals
 - [ ] Add backend validation to check if product id exists before sending data response
+
+## Screenshots
+
+[Imgur](https://i.imgur.com/1kFaFh8.png)
