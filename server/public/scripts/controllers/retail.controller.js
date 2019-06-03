@@ -33,6 +33,7 @@ myApp.controller("RetailController", [
         toastr.error("Product ID must be 8 characters!");
         self.productID = "";
       } else {
+        self.productID = "";
         self.getDetails(id);
         self.getApiMovies(id);
       }
