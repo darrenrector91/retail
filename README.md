@@ -11,7 +11,7 @@ A RESTful service that can retrieve product and price details by ID
 * Mongoose
 * Angular Material
 
-## To run a copy of this on your local machine folow the instructions below
+## To run a copy of this on your local machine follow the instructions below
 
 ### Prerequisites
 
