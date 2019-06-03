@@ -50,4 +50,4 @@ A RESTful service that can retrieve product and price details by ID
 
 ## Screenshots
 
-[Imgur](https://i.imgur.com/1kFaFh8.png)
+<a href="https://imgur.com/1kFaFh8"><img src="https://i.imgur.com/1kFaFh8.png" title="source: imgur.com" /></a>
