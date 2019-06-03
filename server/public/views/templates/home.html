@@ -12,9 +12,9 @@
         13860428
     </md-content>
     <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-        <fieldset class="row" style="border: none;">
-            <div class="column">
-                <div class="data" layout="column" layout-align="start start">
+        <fieldset class="row">
+            <div class="column" ng-hide="vm.isBusy">
+                <div class="data" layout="column">
                     <p class="listTitle">Product ID:</p>
                     <span class="dataDisplay">{{vm.apiData.tcin}}</span>
                     <p class="listTitle">Product Title:</p>

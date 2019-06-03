@@ -33,7 +33,7 @@ router.put("/update/:id", function(req, res) {
   console.log(req.body.current_price.currency_code);
   console.log(req.body.current_price.value);
   let id = req.params.id;
-  MyRetail.update(
+  MyRetail.updateOne(
     { id: id },
     {
       $set: {

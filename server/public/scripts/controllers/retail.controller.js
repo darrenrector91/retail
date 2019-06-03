@@ -5,7 +5,7 @@ myApp.controller("RetailController", [
   function(RetailService, $routeParams, $http) {
     var self = this;
 
-    //self.isBusy = true;
+    self.isBusy = true;
 
     self.getMovies = function(id) {
       self.getDetails(id);
@@ -14,6 +14,7 @@ myApp.controller("RetailController", [
 
     // Get data from MongoDB Movies Table
     self.getDetails = function(id) {
+      self.isBusy = false;
       $http({
         method: "GET",
         url: "/movies/data_store/" + id
@@ -41,7 +42,7 @@ myApp.controller("RetailController", [
         url: "/movies/update/" + id,
         data
       }).then(function(response) {
-        console.log(response);
+        console.log("data updated", response);
       });
     };
   }

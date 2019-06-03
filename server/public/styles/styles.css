@@ -10,3 +10,7 @@
     font-style: underline;
     font-size: 15px;
 }
+
+fieldset {
+    border: none;
+}
