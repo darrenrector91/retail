@@ -10,8 +10,9 @@ function connect() {
     mongoURI = process.env.MONGODB_URI;
   } else {
     // use the local database server
-    mongoURI = "mongodb://localhost:27017/movies";
-    //mongoURI =("mongodb://darrenrector91:B00ne55428@ds047355.mlab.com:47355/my_retail_api_app");
+    //mongoURI = "mongodb://localhost:27017/movies";
+    mongoURI =
+      "mongodb://darrenrector91:B00ne55428@ds047355.mlab.com:47355/my_retail_api_app";
   }
 
   mongoose.connect(mongoURI, {

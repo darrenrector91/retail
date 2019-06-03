@@ -12,8 +12,7 @@ var myApp = angular
       .primaryPalette("blue-grey")
       .warnPalette("red")
       .accentPalette("blue")
-      .backgroundPalette("grey")
-      .dark();
+      .backgroundPalette("grey");
   });
 
 /// Routes ///

@@ -5,12 +5,21 @@
     text-decoration: underline;
 }
 
-.dataDisplay {
-    color: #A6D539;
+td {
+    /* color: #A6D539; */
     font-style: underline;
     font-size: 15px;
 }
 
 fieldset {
     border: none;
+}
+
+table {
+    border: 0.9px solid rgb(216, 216, 216) !important;
+    width: 1000px;
+}
+
+thead {
+    border-bottom: 1px solid rgb(216, 216, 216) !important;
 }
