@@ -16,18 +16,17 @@
             <div class="column">
                 <div class="data" layout="column" layout-align="start start">
                     <p class="listTitle">Product ID:</p>
-                    <span class="dataDisplay" ng-hide="vm.isBusy">{{vm.productId.list}}</span>
+                    <span class="dataDisplay">{{vm.apiData.tcin}}</span>
                     <p class="listTitle">Product Title:</p>
-                    <span class="dataDisplay" ng-hide="vm.isBusy">{{vm.productTitle.list}}</span>
+                    <span class="dataDisplay">{{vm.apiData.product_description.title}}</span>
                     <p class="listTitle">Currency code:</p>
-                    <span class="dataDisplay" ng-hide="vm.isBusy">{{vm.productCode.currencyCode}}</span>
+                    <span class="dataDisplay">{{vm.productData.current_price.currency_code}}</span>
                     <p class="listTitle">Current Price:</p>
-                    <span class="dataDisplay" ng-hide="vm.isBusy" editable-text="vm.productPrice.value"
-                        e-form="textBtnForm"
-                        onaftersave="vm.updatePrice(vm.productPrice.value, vm.productCode.currencyCode, vm.productId.list)">
-                        {{vm.productPrice.value || 'empty'}}
+                    <span class="dataDisplay" editable-text="vm.productData.current_price.value" e-form="textBtnForm"
+                        onaftersave="vm.updatePrice(vm.apiData.tcin, vm.productData)">
+                        {{vm.productData.current_price.value || 'empty'}}
                     </span>
-                    <md-button ng-disabled="vm.isBusy" class="md-raised md-primary" ng-click="textBtnForm.$show()"
+                    <md-button class="md-raised md-primary" ng-click="textBtnForm.$show()"
                         ng-hide="textBtnForm.$visible">
                         edit
                     </md-button>
@@ -35,7 +34,4 @@
             </div>
         </fieldset>
     </md-content>
-    <md-content md-theme=" docs-dark" style="height: 1000px;">
-    </md-content>
 </div>
-editable-text="vm.productPrice.list"

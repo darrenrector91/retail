@@ -4,7 +4,7 @@ mongoose.set("useCreateIndex", true);
 
 // new Schema
 var myRetailSchema = new Schema({
-  id: { type: Number, required: true, unique: true },
+  id: { type: Number },
   name: { type: String, required: true },
   current_price: {
     value: { type: Number },

@@ -5,39 +5,44 @@ myApp.controller("RetailController", [
   function(RetailService, $routeParams, $http) {
     var self = this;
 
-    self.isBusy = true;
+    //self.isBusy = true;
 
-    self.retailService = RetailService;
-    self.productId = RetailService.productId;
-    self.productTitle = RetailService.productTitle;
-    self.productPrice = RetailService.productPrice;
-    self.productCode = RetailService.productCode;
-
-    self.getMovies = function(productId) {
-      if (self.productID.length == 8) {
-        self.isBusy = false;
-        self.productID = "";
-        RetailService.getDetails(productId);
-        RetailService.getApiMovies(productId);
-      } else {
-        toastr.options = {
-          debug: false,
-          positionClass: "toast-bottom-right",
-          onclick: null,
-          fadeIn: 300,
-          fadeOut: 1000,
-          timeOut: 5000,
-          extendedTimeOut: 1000
-        };
-        toastr.error("Product ID must be 8 digits!");
-      }
+    self.getMovies = function(id) {
+      self.getDetails(id);
+      self.getApiMovies(id);
     };
 
-    self.updatePrice = function(productPrice, productCode, productId) {
-      // console.log(productCode);
-      // console.log(productId);
-      // console.log(productPrice);
-      RetailService.updateMoviePrice(productPrice, productCode, productId);
+    // Get data from MongoDB Movies Table
+    self.getDetails = function(id) {
+      $http({
+        method: "GET",
+        url: "/movies/data_store/" + id
+      }).then(function(response) {
+        self.productData = response.data[0];
+        console.log(self.productData);
+      });
+    };
+
+    self.getApiMovies = function(id) {
+      $http({
+        method: "GET",
+        url: "/movies/api/" + id
+      }).then(function(response) {
+        let data = response.data.product.item;
+        self.apiData = data;
+      });
+    };
+
+    self.updatePrice = function(id, data) {
+      console.log(data);
+
+      $http({
+        method: "PUT",
+        url: "/movies/update/" + id,
+        data
+      }).then(function(response) {
+        console.log(response);
+      });
     };
   }
 ]);
